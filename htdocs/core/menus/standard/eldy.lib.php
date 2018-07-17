@@ -127,7 +127,7 @@ function print_eldy_menu($db,$atarget,$type_user,&$tabMenu,&$menu,$noout=0,$mode
 	if (! empty($conf->ficheinter->enabled)) $menuqualified++;
 	$tmpentry=array(
 	    'enabled'=>$menuqualified,
-	    'perms'=>(! empty($user->rights->societe->lire) || ! empty($user->rights->societe->contact->lire)),
+	    'perms'=>(! empty($user->rights->commande->lire) || ! empty($user->rights->comm->lire)),
 	    'module'=>'propal|commande|supplier_order|contrat|ficheinter');
 	$showmode=isVisibleToUserType($type_user, $tmpentry, $listofmodulesforexternal);
 	if ($showmode)
@@ -247,7 +247,7 @@ function print_eldy_menu($db,$atarget,$type_user,&$tabMenu,&$menu,$noout=0,$mode
 	// Tools
 	$tmpentry=array(
 	'enabled'=>1,
-	'perms'=>1,
+	'perms'=>(! empty($user->rights->core->lire)),
 	'module'=>'');
 	$showmode=isVisibleToUserType($type_user, $tmpentry, $listofmodulesforexternal);
 	if ($showmode)
